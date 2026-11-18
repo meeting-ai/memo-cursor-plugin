@@ -19,6 +19,8 @@ sign-in and consent. The package contains no credentials.
 
 Use `workspace_list` to show available workspaces. Use `workspace_set_active` only when the
 user wants to change this connection's default. Use `workspace_id` for a one-off call.
+`media_image_gen`, `media_audio_gen`, and `recipe_visual_note` do not accept it: they always
+save to the active workspace.
 
 If authentication fails, stop and use the client's reconnect control. If the client fails
 before sign-in starts, report the connection error; changing a user's password or buying
@@ -29,7 +31,7 @@ An empty meeting list can mean the wrong workspace or an account with no meeting
 balance, subscription, or storage error is separate from authentication; explain the tool's
 message and stop. Do not keep retrying paid operations.
 
-The user can revoke the grant from Connected Apps in the Meeting.ai web app. Removing the
+The user can revoke the grant in the Meeting.ai web app under Settings › MCP & CLI. Removing the
 plugin locally is not proof that the server-side grant was revoked.
 
 Setup guide: https://meeting.ai/mcp
